@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\type;
-use App\Models\payment;
-use App\Models\student;
+use App\Models\Payment as payment;
+use App\Models\Student as student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
