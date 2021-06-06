@@ -27,6 +27,10 @@
                 <hr>
                 <h4>Sisa yang harus dibayar : <span
                           class="text-danger">{{ "Rp" . number_format($remaining,0,',','.') }}</span></h4>
+                @if ($fund > 0)
+                <h4>Dana tersimpan : <span class="text-success">{{ "Rp" . number_format($fund,0,',','.') }}</span>
+                </h4>
+                @endif
             </div>
             <div class="col-3 text-right">
                 <a href="{{ route('dashboard.mahasiswa.create', $student->npm) }}"

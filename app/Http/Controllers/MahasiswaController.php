@@ -77,10 +77,17 @@ class MahasiswaController extends Controller
 
         $remaining = $totalCost * $semester - $totalPayment;
 
+        $fund = 0;
+        if ($remaining < 0) {
+            $fund = $remaining * (-1);
+            $remaining = 0;
+        }
+
         return view('mahasiswa.show', [
             'title' => 'Detail Pembayaran',
             'student' => $student,
             'remaining' => $remaining,
+            'fund' => $fund,
             'payments' => payment::where('npm', $npm)->get(),
         ]);
     }
