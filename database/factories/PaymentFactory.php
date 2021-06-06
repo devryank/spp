@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Payment;
+use App\Models\payment;
 use App\Models\student;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -13,7 +13,7 @@ class PaymentFactory extends Factory
      *
      * @var string
      */
-    protected $model = Payment::class;
+    protected $model = payment::class;
 
     /**
      * Define the model's default state.
