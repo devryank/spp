@@ -56,7 +56,7 @@ class MahasiswaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $npm
+     * @param  string  $npm
      * @return \Illuminate\Http\Response
      */
     public function show($npm)
@@ -111,11 +111,13 @@ class MahasiswaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  string  $npm
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        // 
+        payment::findOrFail($request->id)->delete();
+
+        return redirect()->route('dashboard.mahasiswa.show', request()->segment('3'))->with('success', 'Data pembayaran berhasil dihapus');
     }
 }

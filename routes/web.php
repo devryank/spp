@@ -25,6 +25,7 @@ Route::name('dashboard.')
         Route::get('/mahasiswa/{npm}', [App\Http\Controllers\MahasiswaController::class, 'show'])->middleware(['auth'])->name('mahasiswa.show');
         Route::get('/mahasiswa/{npm}/bayar', [App\Http\Controllers\MahasiswaController::class, 'create'])->middleware(['auth'])->name('mahasiswa.create');
         Route::post('/mahasiswa/{npm}/store', [App\Http\Controllers\MahasiswaController::class, 'store'])->middleware(['auth'])->name('mahasiswa.store');
+        Route::delete('/mahasiswa/{npm}/destroy/{id}', [App\Http\Controllers\MahasiswaController::class, 'destroy'])->middleware(['auth'])->name('mahasiswa.destroy');
     });
 
 require __DIR__ . '/auth.php';

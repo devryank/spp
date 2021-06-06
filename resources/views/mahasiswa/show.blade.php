@@ -44,6 +44,8 @@
                                     <tr>
                                         <th>Tanggal</th>
                                         <th>Jumlah</th>
+                                        <th width="10%"
+                                            class="text-center">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -51,6 +53,18 @@
                                     <tr>
                                         <td class="py-1">{{ $payment->created_at }}</td>
                                         <td>{{ "Rp". number_format($payment->amount,0,',','.') }}</td>
+                                        <td class="text-center">
+                                            <form action="{{ route('dashboard.mahasiswa.destroy', [request()->segment('3'), $payment->id]) }}"
+                                                  method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <input type="hidden"
+                                                       name="id"
+                                                       value="{{ $payment->id }}">
+                                                <button class="btn btn-danger btn-sm"
+                                                        type="submit"><i class="ti-trash"></i></button>
+                                            </form>
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>
